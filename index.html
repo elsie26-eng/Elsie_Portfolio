@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elsie B. Salazar Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Layout idea: luxury dark. Wine-to-black gradient ground, champagne and rose-gold details, leaf-shaped portrait, numbered sections. */
+  :root {
+    --ink: #f7eee9;
+    --soft: #cdbbb6;
+    --bg: #0a0508;
+    --wine: #2a0b1d;
+    --gold: #e8c98f;
+    --rose: #e6aa98;
+    --rosedeep: #b8737f;
+    --line: rgba(232,201,143,.22);
+    --card: rgba(255,255,255,.04);
+    --foil: linear-gradient(135deg, #f6dfb4 0%, #e6aa98 52%, #c27a86 100%);
+    --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans: "Jost", "Segoe UI", system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 86px; background: var(--bg); }
+  body {
+    font-family: var(--sans); font-size: 17px; line-height: 1.7; color: var(--ink);
+    background:
+      radial-gradient(900px 620px at 85% 2%, rgba(196,52,110,.42), transparent 62%),
+      radial-gradient(800px 600px at 0% 30%, rgba(120,40,110,.38), transparent 62%),
+      radial-gradient(900px 600px at 100% 62%, rgba(184,115,60,.20), transparent 62%),
+      radial-gradient(800px 600px at 0% 92%, rgba(196,52,110,.22), transparent 62%),
+      linear-gradient(180deg, #2a0b1f 0%, #1a0813 28%, #0f050b 62%, #070305 100%);
+    background-color: var(--bg);
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .8;
+    background-image:
+      radial-gradient(1.4px 1.4px at 10% 16%, #f6dfb4 50%, transparent 51%),
+      radial-gradient(1px 1px at 26% 60%, #fff 50%, transparent 51%),
+      radial-gradient(1.4px 1.4px at 44% 28%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 61% 80%, #f6dfb4 50%, transparent 51%),
+      radial-gradient(1.4px 1.4px at 80% 20%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 92% 56%, #f6dfb4 50%, transparent 51%),
+      radial-gradient(1px 1px at 5% 84%, #fff 50%, transparent 51%),
+      radial-gradient(1.4px 1.4px at 54% 92%, #f6dfb4 50%, transparent 51%);
+    animation: twinkle 6s ease-in-out infinite alternate;
+  }
+  @keyframes twinkle { from { opacity: .35; } to { opacity: .9; } }
+  header, main, footer { position: relative; z-index: 1; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+  .wrap { width: min(1100px, 100% - 40px); margin-inline: auto; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.1; text-wrap: balance; }
+  svg { display: block; }
+
+  /* Header */
+  header { position: sticky; top: 0; z-index: 10; background: rgba(15,5,11,.72); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
+  .brand { font-family: var(--serif); font-size: 1.55rem; font-weight: 600; text-decoration: none; letter-spacing: .02em; display: flex; align-items: center; gap: 12px; }
+  .mono { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-size: 1.05rem; font-weight: 700; color: #2a0b1d; background: var(--foil); }
+  nav { display: flex; gap: 4px; flex-wrap: wrap; }
+  nav a { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-size: .78rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--soft); padding: 9px 16px; border-radius: 999px; transition: color .2s, background .2s; }
+  nav a svg { width: 15px; height: 15px; }
+  nav a:hover { color: var(--gold); }
+  nav a.active { color: #2a0b1d; background: var(--foil); box-shadow: 0 8px 22px -8px rgba(232,170,152,.8); }
+
+  /* Hero */
+  .hero { padding: 76px 0 0; }
+  .hero-grid { display: grid; grid-template-columns: 400px 1fr; gap: 80px; align-items: center; }
+  .frame { position: relative; width: 100%; max-width: 400px; aspect-ratio: 4 / 5; justify-self: center; }
+  .frame::before { content: ""; position: absolute; inset: 0; transform: translate(20px, 20px); border: 1.5px solid var(--gold); border-radius: 170px 20px 170px 20px; }
+  .frame::after { content: ""; position: absolute; inset: -34px; z-index: -1; border-radius: 50%; background: radial-gradient(circle, rgba(222,70,130,.5), transparent 68%); filter: blur(24px); }
+  .frame img { position: relative; width: 100%; height: 100%; object-fit: cover; object-position: 50% 14%; border-radius: 170px 20px 170px 20px; background: #faf7f5; box-shadow: 0 40px 80px -30px #000; }
+  .seal { position: absolute; z-index: 2; right: -44px; bottom: 28px; width: 128px; height: 128px; border-radius: 50%; background: #1a0813; border: 1px solid var(--gold); box-shadow: 0 14px 30px -10px #000; display: grid; place-items: center; }
+  .seal svg.ring { position: absolute; inset: 0; width: 100%; height: 100%; animation: spin 36s linear infinite; }
+  .seal text { font-family: var(--sans); font-size: 10.2px; letter-spacing: .2em; fill: var(--gold); font-weight: 500; }
+  .seal .core { width: 32px; height: 32px; color: var(--gold); }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .float { position: absolute; z-index: 2; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; color: var(--gold); background: rgba(26,8,19,.8); border: 1px solid var(--line); box-shadow: 0 10px 24px -8px #000; animation: bob 5s ease-in-out infinite; }
+  .float svg { width: 21px; height: 21px; }
+  .f1 { top: 6%; left: -22px; } .f2 { top: -18px; right: 22%; animation-delay: -1.7s; } .f3 { bottom: 4%; left: -18px; animation-delay: -3.2s; }
+  @keyframes bob { 50% { transform: translateY(-9px); } }
+
+  .kicker { font-size: .78rem; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 14px; }
+  .kicker::before { content: ""; width: 44px; height: 1px; background: var(--gold); }
+  .hello { font-family: var(--serif); font-style: italic; font-size: 1.6rem; color: var(--rose); margin-top: 22px; }
+  h1 { font-size: clamp(3.4rem, 8vw, 6rem); letter-spacing: -.01em; margin-top: 2px; }
+  h1 em { display: block; font-style: italic; font-weight: 600; background: var(--foil); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .1em; }
+  .role { margin-top: 16px; font-size: 1.05rem; font-weight: 500; letter-spacing: .04em; }
+  .intro { margin-top: 14px; max-width: 56ch; color: var(--soft); }
+  .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--sans); font-size: .8rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; text-decoration: none; cursor: pointer; padding: 15px 30px; border-radius: 999px; border: 1.5px solid var(--gold); transition: transform .2s, box-shadow .2s, background .2s; }
+  .btn svg { width: 17px; height: 17px; }
+  .btn.fill { color: #2a0b1d; background: var(--foil); border-color: transparent; }
+  .btn.fill:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -12px rgba(232,170,152,.9); }
+  .btn.line { color: var(--gold); background: transparent; }
+  .btn.line:hover { background: rgba(232,201,143,.12); transform: translateY(-2px); }
+  .stats { display: flex; gap: 44px; flex-wrap: wrap; margin-top: 40px; padding-top: 26px; border-top: 1px solid var(--line); }
+  .stats b { display: block; font-family: var(--serif); font-size: 2.2rem; font-weight: 600; line-height: 1; background: var(--foil); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stats span { font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--soft); }
+
+  /* Marquee */
+  .marquee { margin-top: 84px; overflow: hidden; border-block: 1px solid var(--line); background: rgba(255,255,255,.025); padding: 16px 0; }
+  .track { display: flex; width: max-content; gap: 28px; align-items: center; animation: slide 38s linear infinite; }
+  .track span { font-family: var(--serif); font-size: 1.5rem; font-style: italic; white-space: nowrap; color: var(--ink); }
+  .track i { color: var(--gold); font-style: normal; font-size: .7rem; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  /* Pillars */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 64px; }
+  .tile { position: relative; padding: 34px 30px; border-radius: 22px; background: var(--card); border: 1px solid var(--line); backdrop-filter: blur(6px); transition: transform .25s, border-color .25s, box-shadow .25s; }
+  .tile::before { content: ""; position: absolute; left: 30px; right: 30px; top: -1px; height: 2px; background: var(--foil); border-radius: 2px; }
+  .tile:hover { transform: translateY(-5px); border-color: rgba(232,201,143,.55); box-shadow: 0 24px 44px -26px rgba(222,70,130,.7); }
+  .badge { width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; color: #2a0b1d; background: var(--foil); box-shadow: 0 10px 24px -10px rgba(232,170,152,.9); margin-bottom: 18px; }
+  .badge svg { width: 25px; height: 25px; }
+  .tile h3 { font-size: 1.7rem; margin-bottom: 6px; }
+  .tile p { color: var(--soft); font-size: .97rem; }
+
+  /* Sections */
+  section { padding: 110px 0 0; }
+  .head { margin-bottom: 40px; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; position: relative; }
+  .num { position: absolute; left: -6px; top: -64px; font-family: var(--serif); font-size: 8rem; font-weight: 700; line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(232,201,143,.4); pointer-events: none; user-select: none; }
+  .head h2 { font-size: clamp(2.6rem, 5vw, 3.8rem); position: relative; }
+  .head p { color: var(--soft); max-width: 40ch; position: relative; }
+  .orn { display: flex; align-items: center; gap: 12px; color: var(--gold); margin: 0 0 34px; }
+  .orn::before, .orn::after { content: ""; height: 1px; flex: 1; background: linear-gradient(90deg, var(--line), transparent); }
+  .orn::before { max-width: 70px; background: var(--gold); }
+  .orn i { font-style: normal; font-size: .6rem; }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 32px 34px; backdrop-filter: blur(6px); transition: border-color .25s, box-shadow .25s; }
+  .card:hover { border-color: rgba(232,201,143,.5); box-shadow: 0 22px 44px -28px rgba(222,70,130,.7); }
+  .card h3 { font-size: 1.75rem; margin-bottom: 14px; display: flex; align-items: center; gap: 14px; }
+  .card h3 .mini { width: 38px; height: 38px; flex: none; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--gold); color: var(--gold); }
+  .card h3 .mini svg { width: 18px; height: 18px; }
+  .card p { color: var(--soft); max-width: 74ch; }
+  .card p + p { margin-top: 12px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
+  .chips li { display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px 10px 16px; border-radius: 999px; border: 1px solid rgba(232,201,143,.4); background: rgba(232,201,143,.06); font-size: .93rem; transition: transform .2s, background .2s; }
+  .chips li:hover { transform: translateY(-2px); background: rgba(232,201,143,.16); }
+  .chips svg { width: 18px; height: 18px; color: var(--gold); }
+  .timeline { list-style: none; border-left: 1px solid var(--line); margin-left: 6px; }
+  .timeline li { position: relative; padding: 0 0 22px 26px; }
+  .timeline li:last-child { padding-bottom: 0; }
+  .timeline li::before { content: ""; position: absolute; left: -6px; top: 8px; width: 11px; height: 11px; transform: rotate(45deg); background: var(--foil); box-shadow: 0 0 14px rgba(232,170,152,.8); }
+  .timeline strong { display: block; font-weight: 500; font-size: 1.05rem; line-height: 1.4; }
+  .timeline span { color: var(--soft); font-size: .9rem; }
+
+  /* Projects */
+  .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .project { position: relative; display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); transition: transform .25s, border-color .25s, box-shadow .25s; }
+  .project:hover { transform: translateY(-6px); border-color: rgba(232,201,143,.55); box-shadow: 0 28px 50px -28px rgba(222,70,130,.8); }
+  .cover { position: relative; height: 180px; display: grid; place-items: center; overflow: hidden; }
+  .cover::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.22) 1.2px, transparent 1.4px); background-size: 18px 18px; opacity: .6; }
+  .cover::after { content: ""; position: absolute; width: 190px; height: 190px; border-radius: 50%; right: -60px; top: -80px; border: 1px solid rgba(255,255,255,.35); box-shadow: 0 0 0 26px rgba(255,255,255,.06); }
+  .c1 { background: linear-gradient(135deg, #7a1f4b, #2a0b1d); }
+  .c2 { background: linear-gradient(135deg, #5a2a6e, #1c0b2a); }
+  .c3 { background: linear-gradient(135deg, #a0505f, #3a0f22); }
+  .cover .ico { position: relative; z-index: 1; width: 78px; height: 78px; border-radius: 50%; display: grid; place-items: center; color: #2a0b1d; background: var(--foil); box-shadow: 0 16px 34px -12px rgba(0,0,0,.8); }
+  .cover .ico svg { width: 34px; height: 34px; }
+  .cover .no { position: absolute; z-index: 1; left: 20px; top: 14px; font-family: var(--serif); font-size: 1.1rem; font-style: italic; color: var(--gold); }
+  .project .body { padding: 26px 28px 30px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+  .project h3 { font-size: 1.65rem; }
+  .project p { color: var(--soft); font-size: .96rem; flex: 1; }
+  .tag { align-self: flex-start; font-size: .72rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #2a0b1d; background: var(--foil); padding: 6px 15px; border-radius: 999px; }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 24px; align-items: start; }
+  .info { display: grid; gap: 22px; }
+  .info-row { display: flex; gap: 16px; align-items: flex-start; }
+  .info-row .badge { width: 46px; height: 46px; margin: 0; flex: none; }
+  .info-row .badge svg { width: 21px; height: 21px; }
+  .info dt { font-size: .74rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+  .info dd { color: var(--ink); overflow-wrap: anywhere; }
+  .info dd a { text-decoration-color: var(--gold); text-underline-offset: 4px; }
+  form { display: grid; gap: 16px; }
+  label { display: grid; gap: 6px; font-size: .74rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+  input, select, textarea { font: inherit; font-size: 1rem; letter-spacing: 0; text-transform: none; font-weight: 400; color: var(--ink); background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 14px; padding: 13px 16px; width: 100%; }
+  input::placeholder, textarea::placeholder { color: #8f7d82; }
+  select option { background: #1a0813; color: var(--ink); }
+  textarea { min-height: 130px; resize: vertical; }
+  input:focus-visible, select:focus-visible, textarea:focus-visible { outline-offset: 1px; border-color: var(--gold); }
+  button.btn { justify-self: start; }
+  .status { min-height: 1.4em; font-size: .92rem; color: var(--soft); }
+
+  footer { margin-top: 110px; border-top: 1px solid var(--line); padding: 28px 0 44px; color: var(--soft); font-size: .88rem; letter-spacing: .06em; }
+  .foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 64px; }
+    .frame { max-width: 320px; }
+    .seal { right: -22px; }
+    .hero-text { text-align: center; }
+    .kicker { justify-content: center; } .kicker::before { display: none; }
+    .intro { margin-inline: auto; } .actions, .stats { justify-content: center; }
+    .pillars, .projects, .two, .contact-grid { grid-template-columns: 1fr; }
+    .num { font-size: 6rem; top: -40px; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .bar { height: auto; padding: 12px 0; flex-direction: column; gap: 8px; }
+    nav a { padding: 7px 12px; letter-spacing: .1em; } nav a svg { display: none; }
+    html { scroll-padding-top: 130px; }
+    .hero { padding-top: 40px; }
+    .card { padding: 26px 22px; }
+    .stats { gap: 28px; }
+    .f1 { left: -6px; } .f3 { left: -4px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } body::before, .seal svg.ring, .float, .track { animation: none; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#home"><span class="mono">E</span>Elsie B. Salazar</a>
+    <nav aria-label="Main">
+      <a href="#home" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10M10 20v-6h4v6"/></svg>Home</a>
+      <a href="#about"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>About</a>
+      <a href="#portfolio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Portfolio</a>
+      <a href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div id="home" class="wrap hero">
+    <div class="hero-grid">
+      <div class="frame">
+        <img src="photo.jpg" alt="Portrait of Elsie B. Salazar" width="900" height="864">
+        <span class="float f1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></span><span class="float f2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></svg></span><span class="float f3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="2"/><path d="M2 20h20"/></svg></span>
+        <div class="seal" aria-hidden="true">
+          <svg class="ring" viewBox="0 0 128 128"><defs><path id="circ" d="M64 64 m-47 0 a47 47 0 1 1 94 0 a47 47 0 1 1 -94 0"/></defs><text><textPath href="#circ">INFORMATION TECHNOLOGY &#9670; BSIT &#9670; </textPath></text></svg>
+          <span class="core"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg></span>
+        </div>
+      </div>
+      <div class="hero-text">
+        <p class="kicker">Information Technology Student</p>
+        <p class="hello">Hello, I'm</p>
+        <h1>Elsie B. <em>Salazar</em></h1>
+        <p class="role">Bachelor of Science in Information Technology Student</p>
+        <p class="intro">I am an aspiring IT professional who enjoys learning how websites and software work. I am building my skills in web development, starting with HTML and CSS, and I love turning ideas into clean, simple, and useful projects.</p>
+        <div class="actions">
+          <a class="btn fill" href="#portfolio">View My Work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn line" href="#contact">Contact Me</a>
+        </div>
+        <div class="stats">
+          <div><b>3</b><span>Projects</span></div>
+          <div><b>HTML &amp; CSS</b><span>Core skills</span></div>
+          <div><b>2026</b><span>BSIT journey begins</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="track"><span>HTML</span><i aria-hidden="true">&#9670;</i><span>CSS</span><i aria-hidden="true">&#9670;</i><span>Web Design</span><i aria-hidden="true">&#9670;</i><span>Programming Basics</span><i aria-hidden="true">&#9670;</i><span>Responsive Layouts</span><i aria-hidden="true">&#9670;</i><span>Teamwork</span><i aria-hidden="true">&#9670;</i><span>Always Learning</span><i aria-hidden="true">&#9670;</i><span>HTML</span><i aria-hidden="true">&#9670;</i><span>CSS</span><i aria-hidden="true">&#9670;</i><span>Web Design</span><i aria-hidden="true">&#9670;</i><span>Programming Basics</span><i aria-hidden="true">&#9670;</i><span>Responsive Layouts</span><i aria-hidden="true">&#9670;</i><span>Teamwork</span><i aria-hidden="true">&#9670;</i><span>Always Learning</span><i aria-hidden="true">&#9670;</i></div>
+    </div>
+
+    <div class="pillars">
+      <div class="tile"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M9 7h6"/></svg></div><h3>Learner</h3><p>Always curious and eager to learn new technologies and improve my skills.</p></div>
+      <div class="tile"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="2"/><path d="M2 20h20"/></svg></div><h3>Builder</h3><p>I create projects like a simple calculator and web pages to practice what I learn.</p></div>
+      <div class="tile"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 1.5 6 5.5"/></svg></div><h3>Team Player</h3><p>I enjoy working with classmates and sharing ideas to finish tasks well.</p></div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="head">
+        <span class="num" aria-hidden="true">01</span>
+        <h2>About Me</h2>
+        <p>A little more about my background, education, and experience.</p>
+      </div>
+      <div class="card">
+        <h3><span class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span>Background</h3>
+        <p>I am Elsie B. Salazar, a Bachelor of Science in Information Technology student. My interest in technology started with curiosity about how apps and websites are made. Since then, I have been learning programming and web design step by step, and I enjoy practicing through hands-on activities and small projects.</p>
+        <p>My goal is to become a skilled IT professional who can design and build helpful digital solutions.</p>
+      </div>
+      <div class="card" style="margin-top:24px">
+        <h3><span class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></svg></span>Skills &amp; Strengths</h3>
+        <ul class="chips"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 3 1.6 17L12 22l6.4-2L20 3z"/><path d="M8 8h8l-.4 5-3.6 1.2L8.4 13"/></svg>HTML</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 3 1.6 17L12 22l6.4-2L20 3z"/><path d="M16 8H8.5l.3 3H15l-.4 4-2.6.9L9.4 15"/></svg>CSS</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 2-.8 2-1.8 0-.5-.3-1-.6-1.4-.4-.5-.4-1.3.3-1.8.4-.3 1-.4 1.6-.4H18a3 3 0 0 0 3-3C21 7 17 3 12 3z"/><path d="M7.5 11h.01M10 7.5h.01M14 7.5h.01"/></svg>Web Design</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 5 1V5a2 2 0 0 0-2-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-5 1V5a2 2 0 0 1 2-1z"/></svg>Programming Basics</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 3 14 8-6 2-2 6z"/></svg>User Input Handling</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 1.5 6 5.5"/></svg>Teamwork</li></ul>
+      </div>
+      <div class="two">
+        <div class="card">
+          <h3><span class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg></span>Education</h3>
+          <ul class="timeline">
+            <li><strong>Bachelor of Science in Information Technology</strong><span>Mindoro State University &bull; 2026 &ndash; Present</span></li>
+            <li><strong>Senior High School</strong><span>San Agustin National High School &bull; 2024 &ndash; 2025</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></span>Experience</h3>
+          <ul class="timeline">
+            <li><strong>Web Development Student Projects</strong><span>HTML &amp; CSS hands-on activities &bull; 2026</span></li>
+            <li><strong>Simple Calculator Project</strong><span>Class programming activity &bull; 2026</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="wrap">
+      <div class="head">
+        <span class="num" aria-hidden="true">02</span>
+        <h2>My Portfolio</h2>
+        <p>Examples of my work and projects.</p>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <div class="cover c1" aria-hidden="true"><span class="no">No. 1</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8 7h8M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 16h.01M12 16h.01M15.5 16h.01"/></svg></span></div>
+          <div class="body">
+            <h3>Simple Calculator</h3>
+            <p>A calculator that performs basic arithmetic operations: addition, subtraction, multiplication, and division. It helped me practice logic and user input handling.</p>
+            <span class="tag">Programming Basics</span>
+          </div>
+        </article>
+        <article class="project">
+          <div class="cover c2" aria-hidden="true"><span class="no">No. 2</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></span></div>
+          <div class="body">
+            <h3>Online Portfolio Website</h3>
+            <p>This multi-page website built with HTML and an external CSS stylesheet, featuring a responsive layout, navigation bar, and contact form.</p>
+            <span class="tag">HTML &bull; CSS</span>
+          </div>
+        </article>
+        <article class="project">
+          <div class="cover c3" aria-hidden="true"><span class="no">No. 3</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14c1 1.5 2.2 2.2 3.5 2.2s2.5-.7 3.5-2.2M9 9.5h.01M15 9.5h.01"/></svg></span></div>
+          <div class="body">
+            <h3>Personal Profile Page</h3>
+            <p>A simple web page introducing myself using headings, paragraphs, lists, images, and links to practice proper use of HTML tags.</p>
+            <span class="tag">HTML &bull; CSS</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="head">
+        <span class="num" aria-hidden="true">03</span>
+        <h2>Contact Me</h2>
+        <p>Have a question or want to work together? Send me a message.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="card">
+          <h3>Contact Information</h3>
+          <dl class="info">
+            <div class="info-row"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div><div><dt>Email</dt><dd><a href="mailto:salazarelsie388@gmail.com">salazarelsie388@gmail.com</a></dd></div></div>
+            <div class="info-row"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg></div><div><dt>Course</dt><dd>Bachelor of Science in Information Technology</dd></div></div>
+            <div class="info-row"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div><div><dt>Location</dt><dd>Philippines</dd></div></div>
+          </dl>
+        </div>
+        <div class="card">
+          <h3>Send a Message</h3>
+          <form id="contact-form" novalidate>
+            <label for="name">Full Name
+              <input id="name" name="name" type="text" placeholder="Your full name" autocomplete="name" required>
+            </label>
+            <label for="email">Email
+              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+            </label>
+            <label for="subject">Subject
+              <select id="subject" name="subject">
+                <option>General Inquiry</option>
+                <option>Collaboration</option>
+                <option>Feedback</option>
+              </select>
+            </label>
+            <label for="message">Message
+              <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+            </label>
+            <button class="btn fill" type="submit">Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <p class="status" id="status" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>&copy; 2026 Elsie B. Salazar</span>
+    <span>BS Information Technology &bull; Mindoro State University</span>
+  </div>
+</footer>
+
+<script>
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav a'));
+  var ids = ['home', 'about', 'portfolio', 'contact'];
+  function setActive() {
+    var y = window.scrollY + 160, current = 'home';
+    ids.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el && el.offsetTop <= y) current = id;
+    });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) current = 'contact';
+    links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+  }
+  window.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target, s = document.getElementById('status');
+    if (!f.name.value.trim() || !f.email.value.trim() || !f.message.value.trim()) {
+      s.textContent = 'Please fill in your name, email, and message.';
+      return;
+    }
+    var body = f.message.value + '\n\nFrom: ' + f.name.value + ' (' + f.email.value + ')';
+    var href = 'mailto:salazarelsie388@gmail.com?subject=' + encodeURIComponent(f.subject.value) + '&body=' + encodeURIComponent(body);
+    s.textContent = 'Opening your email app. If nothing opens, write to salazarelsie388@gmail.com directly.';
+    window.location.href = href;
+  });
+</script>
+</body>
+</html>
